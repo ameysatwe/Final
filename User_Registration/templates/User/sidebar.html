@@ -1,0 +1,76 @@
+<!doctype html>
+{%load static%}
+<html lang="en">
+  <head>
+  	<title>{{userprofile.first_name}}'s Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'sidebar/css/style.css'%}">
+  </head>
+  <body>
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+	  		<h1><a href="index.html" class="logo">Dashboard</a></h1>
+                {%block nav%}
+        <ul class="list-unstyled components mb-5">
+          {%block nav-home%}<li class="active">
+            <a href="#"><span class="fa fa-home mr-3"></span> Homepage</a>
+          </li>{%endblock%}
+          {%block nav-dashboard%}<li>
+              <a href="{%url 'User:update' %}"><span class="fa fa-user mr-3"></span> Update</a>
+          </li>{%endblock%}
+          {%block nav-friends%}<li>
+            <a href="{%url 'User:logout'%}"><span class="fa fa-sticky-note mr-3"></span> Logout</a>
+          </li>{%endblock%}
+            {%block nav-changepassword%}<li>
+            <a href="{%url 'User:change password'%}"><span class="fa fa-sticky-note mr-3"></span> change password</a>
+          </li>{%endblock%}
+        </ul>
+                {% endblock %}
+    	</nav>
+
+        <!-- Page Content  -->
+
+      <div id="content" class="p-4 p-md-5 pt-5">
+          {%block header%}<h2 class="mb-4">HELLO <b>{{user.username}}</b>!!</h2>{%endblock%}
+<!--        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+<!--
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+          {%block content%}
+          <div>
+              <p><b>ID:</b>  <h4>{{userprofile.Id}}</h4></p><hr>
+              <p><b>Username:</b> <h4>{{user.username}}</h4></p><hr>
+              <p><b>Email Id:</b>  <h4>{{user.email}}</h4></p>  <hr>
+              <p><b>First Name:</b>  <h4>{{user.first_name}}</h4></p>   <hr>
+              <p><b>Last Name:</b>  <h4>{{user.last_name}}</h4></p>   <hr>
+              <p><b>Mobile:</b>  <h4>{{userprofile.MobileNumber}}</h4></p>    <hr>
+              {%if userprofile.isFaculty == False%}
+              <p><b>Institute:</b> <h4>{{userprofile.Institute}}</h4></p>    <hr>
+              <p><b>Course:</b>  <h4>{{userprofile.Course}}</h4></p>    <hr>
+              <p><b>Discipline:</b>  <h4>{{userprofile.Discipline}}</h4></p>   <hr>
+              <p><b>Semester:</b>  <h4>{{userprofile.Semester}}</h4></p>   <hr>
+              {%endif%}
+              <p><b>Birthdate:</b>  <h4>{{userprofile.DOB}}</h4></p>   <hr>
+        </div>
+          {%endblock%}
+      </div>
+
+		</div>
+
+    <script src="{% static 'sidebar/js/jquery.min.js' %}"></script>
+    <script src="{% static 'sidebar/js/popper.js' %}"></script>
+    <script src="{% static 'sidebar/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'sidebar/js/main.js' %}"></script>
+  </body>
+</html>

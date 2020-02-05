@@ -1,0 +1,47 @@
+.<script type="text/javascript">
+  function init(){
+    if(document.getElementById("radio_0").checked){
+      document.getElementById("id_Institute").disabled = true;
+      document.getElementById("id_Semester").disabled = true;
+      document.getElementById("id_Course").disabled = true;
+      document.getElementById("id_Discipline").disabled = true;
+      document.getElementById("id_Institute").removeAttribute("required");
+      document.getElementById("id_Semester").removeAttribute("required");
+      document.getElementById("id_Course").removeAttribute("required");
+      document.getElementById("id_Discipline").removeAttribute("required");
+    }
+  }
+  function change(){
+    if(document.getElementById("radio_0").checked){
+      document.getElementById("id_Institute").disabled = true;
+      document.getElementById("id_Semester").disabled = true;
+      document.getElementById("id_Course").disabled = true;
+      document.getElementById("id_Discipline").disabled = true;
+      document.getElementById("id_Institute").removeAttribute("required");
+      document.getElementById("id_Semester").removeAttribute("required");
+      document.getElementById("id_Course").removeAttribute("required");
+      document.getElementById("id_Discipline").removeAttribute("required");
+    }
+    else if(document.getElementById("radio_1").checked){
+      document.getElementById("id_Institute").disabled = false;
+      document.getElementById("id_Semester").disabled = false;
+      document.getElementById("id_Course").disabled = false;
+      document.getElementById("id_Discipline").disabled = false;
+      document.getElementById("id_Institute").setAttribute("required","");
+      document.getElementById("id_Semester").setAttribute("required","");
+      document.getElementById("id_Course").setAttribute("required","");
+      document.getElementById("id_Discipline").setAttribute("required","");
+    }
+  }
+</script>
+<body onload="init()">
+  {% for field in form1 %}
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+          <span class="text-danger small">{{field.errors}}</span>
+      </div>
+      <label class="control-label col-sm-2">{{field.label_tag}}</label>
+      <div class="col-sm-10">{{field}}</div>
+    </div>
+  {%endfor%}
+</body>

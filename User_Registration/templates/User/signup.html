@@ -1,0 +1,133 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div align="center">-->
+<!--        <h2>Registration</h2>-->
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {% for field in form%}-->
+<!--        <p>{{field.label}}{{field}}</p>-->
+<!--        {% endfor %}-->
+<!--        {{profileform.as_p}}-->
+<!--        {% for field in form %}-->
+<!--            {{ field.errors }}-->
+<!--        {% endfor %}-->
+<!--        <button type="submit">SUBMIT</button>-->
+<!--    </form>-->
+<!--    </div>-->
+<!--</body>-->
+<!--<style>-->
+<!--    div{-->
+<!--        margin-top:150px;-->
+<!--    }-->
+<!--    body{-->
+<!--        background: powderblue;-->
+<!--    }-->
+<!--    button{-->
+<!--        color: white;-->
+<!--        padding: 10px;-->
+<!--        background:green;-->
+<!--    }-->
+<!--</style>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+{%load static%}
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body onload="init()">
+<div class="main">
+    {% include 'User/edit.html' %}
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        {% csrf_token %}
+                        <h2 class="form-title">Create account</h2>
+                        {% for error in messages %}
+                        <div class="alert alert-danger">
+                            <span style="color: red"> {{ error }}</span>
+                        </div>
+                    {% endfor %}
+                        <div class="form-group">
+                             {% render_field form1.username class="form-input" placeholder=form1.username.label %}
+                         </div>
+                        <div class="form-group">
+                             {% render_field form1.first_name class="form-input" placeholder=form1.first_name.label %}
+                         </div>
+                        <div class="form-group">
+                             {% render_field form1.last_name class="form-input" placeholder=form1.last_name.label %}
+                         </div>
+                        <div class="form-group">
+                            {% render_field form1.email class="form-input" placeholder=form1.email.label %}
+                        </div>
+                        <input type="hidden" id="hidden" value="1">
+                        <div class="form-group">
+                            {% render_field form1.password1 class="form-input" placeholder=form1.password1.label %}
+<!--                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>-->
+                        </div>
+                        <div class="form-group">
+                            {% render_field form1.password2 class="form-input" placeholder=form1.password2.label %}
+                        </div>
+                        <input type="hidden" id="hidden_field" value="2"><BR><BR>
+<!--                        This is the next part-->
+                        <h2 class="form-title">Institute Information</h2>
+                         <div class="form-group">
+                             {% render_field form.isFaculty class="form-input" placeholder=form.isFaculty.label  %}
+                         </div>
+                        <div class="form-group">
+                            {% render_field form.Id class="form-input" placeholder=form.Id.label %}
+                        </div>
+                        <div class="form-group">
+                            {% render_field form.DOB class="form-input" placeholder=form.DOB.label %}
+<!--                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>-->
+                        </div>
+                        <div class="form-group">
+                            {% render_field form.MobileNumber class="form-input" placeholder=form.MobileNumber.label %}
+                        </div>
+                        <div class="form-group">
+                            {% render_field form.Institute class="form-input" placeholder=form.Institute.label %}
+                        </div>
+                        <div class="form-group">
+                            {% render_field form.Course class="form-input" placeholder=form.Course.label %}
+                        </div>
+                        <div class="form-group">
+                            {% render_field form.Discipline class="form-input" placeholder=form.Discipline.label %}
+                        </div>
+                        <div class="form-group">
+                            {% render_field form.Semester class="form-input" placeholder=form.Semester.label %}
+                        </div>
+                        <div class="form-group">
+                            <a href="#"><button type="submit" name="submit" id="submit" class="form-submit" value="Sign up">SUBMIT</button></a>
+                        </div>
+
+                    </form>
+                    <p class="loginhere">
+                        Already have an account?<a href="{% url 'User:login' %}" class="loginhere-link">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+</div>
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js'%}"></script>
+</body>
+</html>
+

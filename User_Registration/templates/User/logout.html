@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+</head>
+<body>
+<h2>Hello {{user}}</h2>
+<p>Email : {{user.email}}</p>
+<p>Hobby: {{user.user_profile.hobby}}</p>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--{%load static%}-->
+<!--{% load widget_tweaks %}-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <title>Sign Up Form by Colorlib</title>-->
+
+<!--    &lt;!&ndash; Font Icon &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">-->
+
+<!--    &lt;!&ndash; Main css &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="main">-->
+
+<!--        <section class="signup">-->
+<!--            &lt;!&ndash; <img src="images/signup-bg.jpg" alt=""> &ndash;&gt;-->
+<!--            <div class="container">-->
+<!--                <div class="signup-content">-->
+<!--                    <form method="POST" id="signup-form" class="signup-form" action="{% url 'postlogin'%}">-->
+<!--                        {% csrf_token %}-->
+<!--                        <h2 class="form-title">PERSONAL INFORMATION</h2>-->
+<!--                         <div class="form-group">-->
+<!--                             {% render_field profileform.mobile class="form-input" placeholder=profileform.mobile.label %}-->
+<!--                         </div>-->
+<!--                        <div class="form-group">-->
+<!--                            {% render_field profileform.birthdate class="form-input" placeholder=profileform.birthdate.label %}-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            {% render_field profileform.company class="form-input" placeholder=profileform.company.label %}-->
+<!--&lt;!&ndash;                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            {% render_field profileform.employee_Id class="form-input" placeholder=profileform.employee_Id.label %}-->
+<!--                        </div>-->
+<!--                        <input type="hidden" id="hidden_field" value="{{user}}">-->
+<!--                        <input type="hidden" id="hidden" value="{{profileform}}">-->
+<!--                        <div class="form-group">-->
+<!--                            {% render_field profileform.salary class="form-input" placeholder=profileform.salary.label %}-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            {% render_field profileform.experience class="form-input" placeholder=profileform.experience.label %}-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <button type="submit" name="submit" id="submit" class="form-submit" value="Sign up">SUBMIT</button>-->
+<!--                        </div>-->
+
+<!--                    </form>-->
+<!--                    <p class="loginhere">-->
+<!--                        Have already an account ? <a href="#" class="loginhere-link">Login here</a>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--</div>-->
+<!--<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>-->
+<!--    <script src="{% static 'js/main.js'%}"></script>-->
+<!--</body>-->
+<!--</html>-->

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% if user %}
+    <h1>Profile</h1>
+
+    ID : {{userprofile.Id}}<br>
+    First Name : {{user.first_name}} <br>
+    Last Name : {{user.last_name}} <br>
+    Phone Number : {{userprofile.MobileNumber}} <br>
+    Date Of Birth : {{userprofile.DOB}} <br>
+    Faculty Member : {{userprofile.isFaculty}} <br>
+    {% if userprofile.isFaculty == False %}
+    Institute : {{userprofile.Institute}} <br>
+    Course : {{userprofile.Course}} <br>
+    Discipline : {{userprofile.Discipline}} <br>
+    Semester : {{userprofile.Semester}} <br>
+    {% endif %}
+
+    {% else %}
+
+    {% endif %}
+    <form class="" action="{% url 'User:logout' %}" method="post">
+      <a href="{% url 'User:update' %}">Update</a>
+    </form>
+    <a href="{% url 'User:logout' %}">Logout</a>
+    <a href="{% url 'User:change password' %}">Change Password</a>
+  </body>
+</html>
